@@ -34,8 +34,7 @@
     <input type="text" id="Referring-Staff-Member" name="referringstaffMember" required><br><br>
 
     <label for = "LocationofBehavior">Location Where Behavior Occurred</label>
-
-    <select>
+    <select id="LocationofBehavior" name="LocationofBehavior">
         <option value = "Classroom">Classroom</option>
         <option value = "Bathroom">Bathroom</option>
         <option value = "Recess">Recess</option>

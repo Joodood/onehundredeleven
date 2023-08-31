@@ -19,13 +19,21 @@ class Form extends Controller {
 //            require_once ''
             require_once "FormValidate.php";
 
-//            $mehigh = new ValidateForm($_POST);
-//            print_r($mehigh);
-//            $err = $mehigh->validateBlogForm();
+            $mehigh = new ValidateForm($_POST);
+            print_r($mehigh);
+            $err = $mehigh->validateBlogForm();
 
 
             print_r($_POST);
-            $this->modelForm->addPost($_POST);
+            echo "<br>";
+            echo "<br>";
+            print_r($err);
+            echo "<br>";
+            echo "<br>";
+            print_r($err['wuby']);
+            echo "<br>";
+            echo "<br>";
+            $this->modelForm->addPost($err);
             $data = $_POST;
             $this->view('successfulSubmission', $data);
         }

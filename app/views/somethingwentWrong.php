@@ -1,0 +1,1 @@
+<h1>Sorry <?php echo $data;?> Something went Wrong</h1>

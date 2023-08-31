@@ -14,21 +14,32 @@ class ValidateForm {
 
     public function validateBlogForm() {
 
-        foreach (self::$fields as $field) {
-            if(!array_key_exists($field, $this->data)) {
-                trigger_error("$field is not present in data");
-                return;
-            }
-        }
-
+//        foreach (self::$fields as $field) {
+//            if(!array_key_exists($field, $this->data)) {
+//                trigger_error("$field is not present in data");
+//                return;
+//            }
+//        }
+        $this->validatewuby();
         $this->validatestudentName();
         $this->validatehomeroomTeacher();
         $this->validatereferringstaffMember();
+        $this->validateStaySafe();
+        $this->validateownyourActions();
+        $this->validateactResponsibly();
+        $this->validaterespecteveryoneandEverything();
+        $this->validateLocationofBehavior();
+//        $this->validatewuby();
         $new = array_merge($this->errors, $this->perfpost);
         return $new;
         //validate title
         //validate body
 
+    }
+    private function validatewuby() {
+        $va = trim($this->data['wuby']);
+        $vas = htmlspecialchars($va);
+        $this->addPerfPost('wuby', $vas);
     }
     private function validatestudentName() {
         $va = trim($this->data['studentName']);
@@ -68,6 +79,46 @@ class ValidateForm {
 //            $val = new Quickie($vas);
             $this->addPerfPost('referringstaffMember', $vas);
         }
+    }
+    private function validateStaySafe() {
+        $va = trim($this->data['StaySafe']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('StaySafe', false);
+        }
+        $this->addPerfPost('StaySafe', $vas);
+    }
+    private function validateownyourActions() {
+        $va = trim($this->data['ownyourActions']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('ownyourActions', false);
+        }
+        $this->addPerfPost('ownyourActions', $vas);
+    }
+    private function validateactResponsibly() {
+        $va = trim($this->data['actResponsibly']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('actResponsibly', false);
+        }
+        $this->addPerfPost('actResponsibly', $vas);
+    }
+    private function validaterespecteveryoneandEverything() {
+        $va = trim($this->data['respecteveryoneandEverything']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('respecteveryoneandEverything', false);
+        }
+        $this->addPerfPost('respecteveryoneandEverything', $vas);
+    }
+    private function validateLocationofBehavior() {
+        $va = trim($this->data['LocationofBehavior']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('LocationofBehavior', false);
+        }
+        $this->addPerfPost('LocationofBehavior', $vas);
     }
 //    private function StaySafe ()
 //    {
