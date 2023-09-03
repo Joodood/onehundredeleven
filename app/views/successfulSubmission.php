@@ -1,6 +1,6 @@
-
+<!---->
 <?php
-
+//
 //function writeToCsv($data, $filename) {
 //    $fp = fopen($filename, 'w');
 //
@@ -14,29 +14,42 @@
 //
 //    fclose($fp);
 //}
-//writeToCsv($_POST, 'henry1.csv');
-//$fp = fopen()
-// h:i:s a
-
-//date_default_timezone_set('America/Chicago');
-//$created_atDate = date('F d, Y');
-//$data['created_at'] = $created_atDate;
+//writeToCsv($data, 'henry1.csv');
+////$fp = fopen()
+//// h:i:s a
 //
+////date_default_timezone_set('America/Chicago');
+////$created_atDate = date('F d, Y');
+////$data['created_at'] = $created_atDate;
+////
 //$fp = fopen('q.csv', 'a');
 //fputcsv($fp, $data);
 //fclose($fp);
+//
+//mail('jude.hathway@gmail.com', 'My Subject', '<pre>' . $data . '</pre>');
+//
+//?>
+<?php
+//if(isset($data)) {
+//    print_r($data);
+//}
+//
+//?>
 
-//mail('HATHWJ00@mcpsmd.org', 'My Subject', $message);
-
-?>
 
 <?php
 
-    $staffMember= $data["referringstaffMember"];
-    echo "<h1> You have successfully submitted the form," . "</h1>". "<h4>". $staffMember . "</h4>";
-    print_r($data);
+//    $staffMember= $data["referringstaffMember"];
+//    echo "<h3> You have successfully soared and your birdies will be hearing from you soon," . "</h3>". "<h4>". $staffMember . "</h4>";
+echo "<h3>You have successfully soared and your birdies will be hearing from you soon.</h3>";
+//    print_r($data);
 
 ?>
+
 <br>
-<br>
+
 <a href = '<?php echo URLROOT ?>'>Back</a>
+<!---->
+<!--<script>-->
+<!--window.location.reload();-->
+<!--</script>-->

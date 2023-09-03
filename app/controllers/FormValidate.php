@@ -1,10 +1,11 @@
 <?php
 
+error_reporting(E_ERROR | E_PARSE);
 
 class ValidateForm {
     private $data;
     private $errors = [];
-    private static $fields = ['wuby', 'studentName', 'homeroomTeacher', 'referringstaffMember', 'StaySafe', 'ownyourActions', 'actResponsibly', 'respecteveryoneandEverything','LocationofBehavior'];
+    private static $fields = ['wuby', 'studentName', 'homeroomTeacher', 'referringstaffMember', 'StaySafe', 'ownyourActions', 'actResponsibly', 'respecteveryoneandEverything','LocationofBehavior', 'myActions', 'etib', 'howOthers', 'futureChoice', 'responsibilityActions'];
     protected $perfpost = [];
 
     public function __construct($post) {
@@ -29,6 +30,13 @@ class ValidateForm {
         $this->validateactResponsibly();
         $this->validaterespecteveryoneandEverything();
         $this->validateLocationofBehavior();
+
+        $this->validatemyActions();
+        $this->validateetib();
+        $this->validatehowOthers();
+        $this->validatefutureChoice();
+        $this->validateresponsibilityActions();
+
 //        $this->validatewuby();
         $new = array_merge($this->errors, $this->perfpost);
         return $new;
@@ -84,7 +92,7 @@ class ValidateForm {
         $va = trim($this->data['StaySafe']);
         $vas = htmlspecialchars($va);
         if(empty($vas)) {
-            $this->addPerfPost('StaySafe', false);
+            $this->addPerfPost('StaySafe', FALSE);
         }
         $this->addPerfPost('StaySafe', $vas);
     }
@@ -92,7 +100,7 @@ class ValidateForm {
         $va = trim($this->data['ownyourActions']);
         $vas = htmlspecialchars($va);
         if(empty($vas)) {
-            $this->addPerfPost('ownyourActions', false);
+            $this->addPerfPost('ownyourActions', FALSE);
         }
         $this->addPerfPost('ownyourActions', $vas);
     }
@@ -100,7 +108,7 @@ class ValidateForm {
         $va = trim($this->data['actResponsibly']);
         $vas = htmlspecialchars($va);
         if(empty($vas)) {
-            $this->addPerfPost('actResponsibly', false);
+            $this->addPerfPost('actResponsibly', FALSE);
         }
         $this->addPerfPost('actResponsibly', $vas);
     }
@@ -108,7 +116,7 @@ class ValidateForm {
         $va = trim($this->data['respecteveryoneandEverything']);
         $vas = htmlspecialchars($va);
         if(empty($vas)) {
-            $this->addPerfPost('respecteveryoneandEverything', false);
+            $this->addPerfPost('respecteveryoneandEverything', FALSE);
         }
         $this->addPerfPost('respecteveryoneandEverything', $vas);
     }
@@ -116,9 +124,49 @@ class ValidateForm {
         $va = trim($this->data['LocationofBehavior']);
         $vas = htmlspecialchars($va);
         if(empty($vas)) {
-            $this->addPerfPost('LocationofBehavior', false);
+            $this->addPerfPost('LocationofBehavior', FALSE);
         }
         $this->addPerfPost('LocationofBehavior', $vas);
+    }
+    private function validatemyActions() {
+        $va = trim($this->data['myActions']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('myActions', FALSE);
+        }
+        $this->addPerfPost('myActions', $vas);
+    }
+    private function validateetib() {
+        $va = trim($this->data['etib']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('etib', FALSE);
+        }
+        $this->addPerfPost('etib', $vas);
+    }
+    private function validatehowOthers() {
+        $va = trim($this->data['howOthers']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('howOthers', FALSE);
+        }
+        $this->addPerfPost('howOthers', $vas);
+    }
+    private function validatefutureChoice() {
+        $va = trim($this->data['futureChoice']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('futureChoice', FALSE);
+        }
+        $this->addPerfPost('futureChoice', $vas);
+    }
+    private function validateresponsibilityActions() {
+        $va = trim($this->data['responsibilityActions']);
+        $vas = htmlspecialchars($va);
+        if(empty($vas)) {
+            $this->addPerfPost('responsibilityActions', FALSE);
+        }
+        $this->addPerfPost('responsibilityActions', $vas);
     }
 //    private function StaySafe ()
 //    {
